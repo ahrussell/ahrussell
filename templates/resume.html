@@ -1,0 +1,11 @@
+{% extends "main_layout.html" %}
+
+{% block title %}
+Resum&#x00E9;
+{% endblock %}
+
+{% block main %}
+<div id="main_title">Under Construction</div>
+<div id="main_content">
+    <p>I'm currently reformatting my resume for this site.  In the meantime, you can download it in PDF form here:&nbsp;&nbsp; <a href="{{ url_for("downloads", filepath="resume.pdf") }}"> <img src="{{ url_for("static", filename="img/pdf.png") }}" style="width: 25px;"> Resum&#x00E9;</a></p>  </div>
+{% endblock %}

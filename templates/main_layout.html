@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+    {% block head %}
+        <meta charset="utf-8">
+        
+        <title>
+            {% block head_title %}
+                {% if page_name == "home" %}
+                    Andrew Russell
+                {% else %}
+                    {{ page_name.capitalize() }} - Andrew Russell
+                {% endif %}
+            {% endblock %}
+        </title>
+        
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for("static", filename="favicon.ico") }}">
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="bootstrap/css/bootstrap.min.css") }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/main.css") }}">
+        {% block page_css %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/"+page_name+".css") }}">
+        {% endblock %}
+    
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="{{ url_for("static", filename="bootstrap/js/bootstrap.min.js") }}"></script>
+        
+    {% endblock %}
+    </head>
+
+    <body>
+    {% block header %}
+        
+    {% endblock %}
+    
+        <div id="body">
+            <div class="container">
+                <div class="row" id="title">
+                    <div class="span12" style="margin-left: 10px;">
+                        <h1 style="margin-left: 0px;">{% block title %} {% endblock %}</h1>
+                    </div>
+                </div>
+                
+                <div class="row" id="content">
+                    <div class="span1" id="nav">
+                        <nav>
+                            <a href="{{ url_for("index") }}"><img style="background-color: #00a6d8;" src="{{ url_for("static", filename="img/home.gif") }}" alt="Home" class="navimg" title="Home"></a>
+                            <br />
+                            <a href="{{ url_for("projects") }}"><img style="background-color: #f6612b;" src="{{ url_for("static", filename="img/projects.gif") }}" alt="Projects" class="navimg" title="Projects"></a>
+                            <br />
+                            <a href="{{ url_for("blog") }}"><img style="background-color: #9f49b7;" src="{{ url_for("static", filename="img/blog.gif") }}" alt="Blog" class="navimg" title="Blog"></a>
+                            <br />
+                            <a href="{{ url_for("resume") }}" target="0"><img style="background-color: #16a800;" src="{{ url_for("static", filename="img/resume.gif") }}" alt="Resume" class="navimg" title="Resume"></a>
+                            <br />
+                            <a href="{{ url_for("about") }}"><img style="background-color: #ce140a;" src="{{ url_for("static", filename="img/about.gif") }}" alt="About" class="navimg" title="About"></a>
+                            <br />
+                        </nav>
+                    </div>
+                    
+                    <div class="span9" id="main">
+                        {% block main %}
+    
+                        {% endblock %}
+                    </div>
+                    
+                    <div class="span2" id="sidebar">
+                        <a href="{{ url_for("about") }}"><img id="profilepic" src="{{ url_for("static", filename="img/andrew-russell.jpg") }}"></a>
+                        <div id="name">Andrew Russell</div>
+                        
+                        <div id="links">
+                            <a href="http://github.com/zrathustra" target="0">github</a>
+                            <br />
+                            <a href="http://facebook.com/zrathustra" target="0">facebook</a>
+                            <br />
+                            <a href="http://twitter.com/zrathustra" target="0">twitter</a>
+                            <br /><br />
+                            <span style="font-size: 8pt;">&copy; 2013</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+    </body>
+</html>

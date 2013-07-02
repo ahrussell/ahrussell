@@ -1,0 +1,57 @@
+body {
+    background-color: #fcfcfc;
+}
+
+#sidebar {
+    margin: 6px;
+}
+
+#nav {
+    text-align: center;
+    margin: 6px;
+}
+
+#main {
+    background-color: #dfdfdf;
+    min-height: 500px;
+    margin: 6px;
+}
+
+#title {
+    margin-top: 25px;
+}
+
+.navimg {
+    width: 30px;
+    margin: 0px 0px 10px 0px;
+    padding: 15px;
+    border: #000 0px solid;
+    height: 29px;
+}
+
+.navimg:hover {
+    opacity: .8;
+}
+
+#profilepic {
+    width: 100%;
+    border: 4px #DFDFDF solid;
+}
+
+#name {
+    margin: 10px 0px 5px 0px;
+    font-size: 15pt;
+    font-family: Georgia;
+    text-align: right;
+}
+
+#links {
+    text-align: right;
+    margin-top: 10px;
+    border-top: #ccc 1px dotted;
+    padding-top: 10px;
+}
+
+#content {
+    margin-bottom: 30px;
+}

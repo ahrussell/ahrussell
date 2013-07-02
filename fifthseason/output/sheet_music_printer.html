@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sheet Music Printer</title>
+        
+        <script type="text/javascript" src="./jquery.js"></script>
+        <script type="text/javascript" src="./vexflow-master/vexflow.js"></script>
+
+    </head>
+    
+    <body style="text-align: center;">
+        <div style="width: 1025px; margin: 0 auto; padding-right: 20px;">
+            <h1>The Fifth Season</h1>
+            <h3 style="text-align: right;">Composed by Andrew Russell</h3>
+        </div>
+        
+        <script type="text/javascript">
+            function convert(pitch, octave) {
+                pitch = pitch.toLowerCase();
+                
+                if(pitch == "g" || pitch == "a" || pitch == "b") {
+                    octave += 3;
+                } else {
+                    octave += 4;
+                }
+                
+                return pitch + "/" + octave; 
+            }
+            
+            var piece;
+            
+            $.ajax({url: "fifth_season.json", "async":false, "type": "GET"}).done(function(data) { piece = data; });
+            
+            piece = JSON.parse(piece);
+            
+            var new_line = true;
+            var pixels = 0;
+            var line = 0;
+            var length = 400;
+            
+            for (var i=0; i < piece.length; i++) {
+                if(new_line) {
+                    var newCanvas = document.createElement('canvas');
+                    newCanvas.height="150";
+                    newCanvas.width="1025";
+                    
+                    newCanvas.id = line.toString();
+                    
+                    document.body.appendChild(newCanvas);
+                    
+                    var canvas = $("#" + line.toString())[0];
+                    var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
+            
+                    var ctx = renderer.getContext();
+                    
+                    var stave = new Vex.Flow.Stave(10, 10, length+50);
+                    stave.addClef("treble").setContext(ctx).draw();
+                    
+                    pixels = length;
+                    line++;
+                    new_line = false;
+                } else if(pixels >= 1000-length) {
+                    new_line = true;
+                    continue;
+                } else {
+                    var stave = new Vex.Flow.Stave(stave.width + stave.x, stave.y, length);
+                    stave.setContext(ctx).draw();
+                    pixels += length;
+                }
+                
+                var measure = piece[i];
+                
+                var notes = [];
+                
+                try {
+                    for(var j = 0; j < measure.length; j++) {
+                        note = measure[j];
+                        
+                        var len;
+                        dotted = false;
+                        dur = parseFloat(note[2]);
+                        
+                        switch(dur) {
+                            case .1875:
+                                len = "8";
+                                dotted = true;
+                                break;
+                            case .25:
+                                len = "q";
+                                break;
+                            case .375:
+                                len = "q";
+                                dotted = true;
+                                break;
+                            case .5:
+                                len = "h";
+                                break;
+                            case .75:
+                                len = "h";
+                                dotted = true;
+                                break;
+                            case 1:
+                                len = "w";
+                                break;
+                            default:
+                                len = Math.floor(1 / note[2]);
+                                break;
+                        }
+                        
+                        if(note[0][0] == "R") {
+                            var new_note = new Vex.Flow.StaveNote({ keys: ["b/4"], duration: len.toString()+"r"});
+                        } else {
+                            var new_note = new Vex.Flow.StaveNote({ keys: [convert(note[0][0],note[1])], duration: len.toString()});
+                        }
+                        
+                        if(note[0].length > 1) {
+                            new_note.addAccidental(0, new Vex.Flow.Accidental(note[0][1]));
+                        }
+                        
+                        if(dotted) {
+                            new_note.addDot(0);
+                        }
+                        
+                        notes.push(new_note);
+                    }
+                } catch(err) {
+                    continue;
+                }
+                
+                Vex.Flow.Formatter.FormatAndDraw(ctx, stave, notes);
+            }
+        </script>
+        
+    </body>
+</html>

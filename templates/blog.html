@@ -1,0 +1,19 @@
+{% extends "main_layout.html" %}
+
+{% block title %}
+Blog
+{% endblock %}
+
+{% block main %}
+
+    {% for post in posts %}
+        <div class="title"><a href="{{ post['id'] }}">{{ post['title'] }}</a> <span class="time_stamp">{{ post["date"] }}</span></div>
+        <div class="description">
+            {% if post["body"]|count > 300 %}
+                {{ post["body"][:300] + "..." }}
+            {% else %}
+                {{ post["body"] }}
+            {% endif %}
+            </div>    
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+#main_title {
+    font-size: 15pt;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: #aaa 1px dotted; 
+    margin: 15px 15px 15px 15px;
+}
+
+#main_content {
+    margin: 10px 20px 10px 20px;
+}

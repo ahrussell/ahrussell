@@ -1,0 +1,88 @@
+{% extends "projects/"+page_name+".html" %}
+
+{% block landing %}
+
+{% endblock %}
+
+{% block app %}
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span9">
+    <div style="font-size: 14pt; border-bottom: #888 dotted 1px; margin-bottom: 10px; margin-right: 30px; padding-bottom: 5px;" id="sub_title">
+        Instructions
+    </div>
+
+    <div id="speech" style="padding-right:20px;">
+        <p>
+            On the right, select which seasons to include in the generated piece.  It will then compose the piece and provide a link to the composed piece.  Please note that this could take several seconds to process.
+        </p>
+    </div>
+
+    <div id="back" style="text-align: right; margin-right: 10px;">
+        <a href="{{ url_for("projects",page_name="fifthseason") }}">&larr; Back</a>
+    </div>
+</div>
+
+<div class="span3">
+    
+
+    <form name="settings" action="" onsubmit="return false;" method="post" style="float: right;">
+        <fieldset>
+            <label class="checkbox" style="font-size: 9pt;">
+                <input type="checkbox" name="spring" value="Spring" /> Spring
+            </label>
+            <label class="checkbox" style="font-size: 9pt;">
+                <input type="checkbox" name="summer" value="Summer" /> Summer
+            </label>
+            <label class="checkbox" style="font-size: 9pt;">
+                <input type="checkbox" name="autumn" value="Autumn" /> Autumn
+            </label>
+            <label class="checkbox" style="font-size: 9pt;">
+                <input type="checkbox" name="winter" value="Winter" /> Winter
+            </label>
+            
+
+            <button onclick="javascript:get_results(); return false;" class="btn" style="float:right; margin-top:15px;">Submit</button>
+        </fieldset>
+    </form>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    function get_results() {
+        var files = {};
+
+        var form = $("form fieldset label input");
+
+        var c = 0;
+
+        for (var k in form) {
+            if (form[k].checked) {
+                files[form[k].name] = form[k].value;
+                c++;
+            }
+        }
+
+        if (c == 0) {
+            alert("You must choose at least one season!");
+            return false;
+        }
+
+        $("div#sub_title").html("Generating Piece...");
+
+        $("div#speech").html("<div class='progress progress-striped active' style='width:100%; margin-top: 50px;'><div class='bar' style='width: 100%;'></div></div><p style='text-align:center; font-size:9pt;'>This process may take a few moments</p>");
+
+        $.ajax({
+          type: "POST",
+          url: "{{ url_for("run_fifthseason") }}",
+          data: files
+        }).done(function( msg ) {
+            console.log(msg);
+            $("div#sub_title").html("Fifth Season");
+            $("div#speech").html("<p>The piece you generated is located <a href='run/"+msg+"'>here</a>.  Feel free to share it with your friends or print it!</p>");
+        });
+
+    }
+</script>
+{% endblock %}

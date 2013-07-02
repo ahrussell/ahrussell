@@ -1,0 +1,40 @@
+{% extends "main_layout.html" %}
+
+{% block page_css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for("static", filename="css/project.css") }}">
+{% endblock %}
+
+{% block title %}
+Project
+{% endblock %}
+
+{% block main %}
+<div class="row" style="text-align: center;">
+    <div class="span9" id="imgrow">
+        <img id="project_img" src="{% block img_url %}{{ url_for("static", filename="img/projects/"+page_name+".png") }}{% endblock %}">
+    </div>
+</div>
+
+<div class="row" id="info">
+    
+    <div class="span8">
+        {% block landing %}
+        <div id="description">
+            <div id="details">
+                {% block details %}{% endblock %}
+            </div>
+            
+            {% block description %}{% endblock %}
+            
+        </div>
+        {% endblock %}
+        
+        <div id="app">
+            {% block app %}
+            {% endblock %}
+        </div>
+        
+    </div>
+</div>
+    
+{% endblock %}

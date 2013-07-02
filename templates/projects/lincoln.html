@@ -1,0 +1,29 @@
+{% extends "project_layout.html" %}
+
+{% block head_title %}
+LincolnBot - Andrew Russell
+{% endblock %}
+
+{% block title %}
+LincolnBot
+{% endblock %}
+
+{% block details %}
+
+<ul>
+<li style="font-size: 13pt;"><a href="{{ url_for("run_lincoln") }}">View Project!</a></li>
+<li>Collaborators: Andrew Russell</li>
+<li>Released: December 2012</li>
+<li>Version: 0.1</li>
+<li>GitHub: <i>Coming Soon</i></li>
+{% endblock %}
+
+{% block description %}
+<p>
+LincolnBot was originally small project used primarily to get myself more involved with some basic AI programming (using Markov chains) and exploring some structure in language.  I was also taking a class in American Political Thought at the time, taught by the amazing Professor Susan McWilliams, and thought I could use this as an extra credit assignment if accompanied by some analysis.  
+</p><p>
+Naive Markov chains worked reasonably well, and after I found myself trying to build a Part-of-Speech tagging system to refine my result, Professor Sara Sood was kind enough to point me to Python's Natural Language Toolkit.  While not perfect, I am reasonably happy with how the project turned out.  I am definitely interested in pursuing language parsing and analysis more (for example, comparing the speeches and writing of Lincoln and Obama).
+</p><p>
+The program takes a number of Lincoln's works and forms nth-order <a href="http://mathworld.wolfram.com/MarkovChain.html">Markov chains</a> (specified before runtime) and then uses these to produce a number of sentences.  Higher values of n will give more direct quotes from the source material.  I'd recommend one of about 3.  <a href="{{ url_for("run_lincoln") }}">Check it out for yourself!</a>
+</p>
+{% endblock %}

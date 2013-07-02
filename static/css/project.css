@@ -1,0 +1,28 @@
+#description {
+    font-size: 9pt;
+}
+
+#project_img {
+    width: 675px
+    height: 150px;
+    margin: 0px;
+    -moz-box-shadow: 3px 3px 4px #333;
+    -webkit-box-shadow: 3px 3px 4px #333;
+    box-shadow: 0px 0px 15px #333;
+}
+
+#info {
+    margin: 10px 0px 10px 0px;
+}
+
+#imgrow {
+    text-align: center;
+    margin: 15px 5px 10px 20px;
+}
+
+#details {
+    float: right;
+    display: block;
+    margin: 10px;
+    font-size: 11pt;
+}

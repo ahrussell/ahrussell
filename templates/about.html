@@ -1,0 +1,21 @@
+{% extends "main_layout.html" %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block main %}
+<div id="main_content">
+    <p>
+        I am a current student at <a href="http://pomona.edu">Pomona College</a> in Claremont, CA studying Mathematics and Computer Science.  I have particular academic interests in artificial intelligence, machine learning, statistics/probability, politics, and philosophy.
+    </p>
+    
+    <p>
+        Outside of school, I play ultimate frisbee for the <a href="http://claremontultimate.com">Claremont Braineaters</a>, play the violin, and compete with <a href="http://pomonamocktrial.org">Pomona Mock Trial</a>.  I also enjoy the great outdoors (especially backpacking and whitewater kayaking) and lead trips for <a href="http://otl.pomona.edu">On the Loose</a>.
+    </p>
+    
+    <p style="font-size: 8pt;">
+        <a href="{{ url_for("resume") }}">Looking for my resum&#x00E9;?</a>
+    </p>
+</div>
+{% endblock %}

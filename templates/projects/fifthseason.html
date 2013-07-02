@@ -1,0 +1,29 @@
+{% extends "project_layout.html" %}
+
+{% block head_title %}
+The Fifth Season - Andrew Russell
+{% endblock %}
+
+{% block title %}
+The Fifth Season
+{% endblock %}
+
+{% block details %}
+
+<ul>
+<li style="font-size: 13pt;"><a href="{{ url_for("run_fifthseason") }}">View Project!</a></li>
+<li>Collaborators: Andrew Russell</li>
+<li>Released: December 2012</li>
+<li>Version: 0.1</li>
+<li>GitHub: <i>Coming Soon</i></li>
+{% endblock %}
+
+{% block description %}
+<p>
+Like my other project from last winter, <a href="{{ url_for("projects", page_name="lincoln") }}">LincolnBot</a>, The Fifth Season was an attempt to combine school and pleasure.  At Pomona, all freshmen are required to take a writing seminar that revolves around some specific topic.  My first choice was Mathematics and Music, where I was required to do a final project and research paper at the end of the semester.  Our final projects were meant to be original compositions that used mathematics in some way.  After deciding to write my research paper on algorithmic composition, I decided I would try to implement one of the solutions I had researched, a technique I found in a paper by Karsten Verbeurgt, Michael Dinolfo, and Mikhail Fayer at the State University of New York.  I would use this technique to create a "Fifth Season" based on Vivaldi's Four Seasons, which gives the project its name.
+</p><p>
+Essentially, the program takes some input sequence of notes (my input method is/was quite naive - I had to manually enter in all notes myself, as no open source <a href="https://en.wikipedia.org/wiki/Music_OCR">OMR</a> really worked well and I was under a deadline) and extracts repeating patterns from the notes using suffix trees.  The program then uses these patterns (and the individual notes in the sequence) to create a Markov chain (with longer patterns being weighted more heavily).  The program then outputs the result in HTML form using <a href="http://www.vexflow.com/">VexFlow</a>.  
+</p><p>
+<a href="">Check it out for yourself!</a>  I have provided some input values myself (specifically, excerpts from Vivaldi's Four Seasons).  In the future, I would like to be able to use sheet music as input, as well as improve the pattern matching techniques to create a more robust definition of what it means to be a "pattern" in music.
+</p>
+{% endblock %}
