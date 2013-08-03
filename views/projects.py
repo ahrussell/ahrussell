@@ -3,9 +3,14 @@ import random
 import json
 import uuid
 
-import sys
+from ahrussell import app
+
+import ahrussell.src.fifthseason as fifthseason
+import ahrussell.src.lincolnbot as lincolnbot
 
 projects = Blueprint('projects', __name__, subdomain='', url_prefix='/projects')
+
+home_dir = app.config["HOME"]
 
 @projects.route('/')
 @projects.route('/<page_name>')
@@ -21,8 +26,6 @@ def run_lincoln():
     page_name = "lincoln"
 
     if request.method == "POST":
-        # return json.dumps(sys.path)
-        import src.lincolnbot as lincolnbot
 
         files = []
 
@@ -33,7 +36,7 @@ def run_lincoln():
             if f == "order":
                 order = int(v)
             else:
-                files.append("src/lincolnbot/speeches/"+f+".txt")
+                files.append(home_dir+"src/lincolnbot/speeches/"+f+".txt")
 
         bot = lincolnbot.LincolnBot(files, order)
 
@@ -55,7 +58,6 @@ def run_fifthseason():
     page_name = "fifthseason"
 
     if request.method == "POST":
-        import src.fifthseason as fifthseason
 
         files = {}
 
@@ -63,14 +65,14 @@ def run_fifthseason():
             f = c[0]
             v = c[1]
 
-            files[f] = "src/fifthseason/music/"+f+".json"
+            files[f] = home_dir+"/src/fifthseason/music/"+f+".json"
 
         bot = fifthseason.Composer(files)
         piece = bot.measurify(bot.write(350), 4, 4)
 
         json_file = uuid.uuid4().hex
 
-        fp = open("static/projects/fifthseason/output/json/"+json_file+".json", "w")
+        fp = open(home_dir+"static/projects/fifthseason/output/json/"+json_file+".json", "w")
 
         json.dump(piece, fp)
 

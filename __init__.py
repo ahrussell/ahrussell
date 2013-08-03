@@ -4,7 +4,12 @@ import random
 import json
 import uuid
 
+import src
+
 app = Flask(__name__)
+app.debug = True
+
+app.config['HOME'] = "/var/www/ahrussell/ahrussell/"
 
 from views.projects import projects
 app.register_blueprint(projects)
@@ -31,5 +36,5 @@ def downloads(filepath):
 
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run(port=3333)
+    # app.debug = True
+    app.run()
