@@ -1,2 +1,0 @@
-import lincolnbot
-import fifthseason
