@@ -19,7 +19,7 @@
     </div>
 
     <div id="back" style="text-align: right; margin-right: 10px;">
-        <a href="{{ url_for("projects",page_name="fifthseason") }}">&larr; Back</a>
+        <a href="{{ url_for("projects.index",page_name="fifthseason") }}">&larr; Back</a>
     </div>
 </div>
 
@@ -75,7 +75,7 @@
 
         $.ajax({
           type: "POST",
-          url: "{{ url_for("run_fifthseason") }}",
+          url: "{{ url_for("projects.run_fifthseason") }}",
           data: files
         }).done(function( msg ) {
             console.log(msg);
