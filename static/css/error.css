@@ -1,0 +1,49 @@
+#main_title {
+    font-size: 15pt;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: #aaa 1px dotted; 
+    margin: 15px 15px 15px 15px;
+}
+
+#main_content {
+    margin: 10px 20px 10px 20px;
+}
+
+.title {
+    font-size: 15pt;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: #aaa 1px dotted; 
+    margin: 15px 15px 15px 15px;
+}
+
+.description {
+    margin: 10px 20px 10px 20px;
+}
+
+.time_stamp {
+    float:right;
+    font-weight: normal;
+    font-size: 10pt;
+    color: #777;
+}
+
+h3
+{
+    display: inline;
+}
+
+.post_time_stamp
+{   
+    float:right;
+    font-weight: normal;
+    font-size: 10pt;
+    color: #777;
+    margin-top: 15px;
+}
+
+.body 
+{
+    margin: 10px 20px 10px 20px;
+}
