@@ -11,11 +11,10 @@ LincolnBot
 {% block details %}
 
 <ul>
-<li style="font-size: 13pt;"><a href="{{ url_for("run_lincoln") }}">View Project!</a></li>
-<li>Collaborators: Andrew Russell</li>
+<li style="font-size: 13pt;"><a href="{{ url_for("projects.run_lincoln") }}">View Project!</a></li>
 <li>Released: December 2012</li>
 <li>Version: 0.1</li>
-<li>GitHub: <i>Coming Soon</i></li>
+<li><a href="https://github.com/zrathustra/lincolnbot">GitHub</a></li>
 {% endblock %}
 
 {% block description %}
@@ -24,6 +23,6 @@ LincolnBot was originally small project used primarily to get myself more involv
 </p><p>
 Naive Markov chains worked reasonably well, and after I found myself trying to build a Part-of-Speech tagging system to refine my result, Professor Sara Sood was kind enough to point me to Python's Natural Language Toolkit.  While not perfect, I am reasonably happy with how the project turned out.  I am definitely interested in pursuing language parsing and analysis more (for example, comparing the speeches and writing of Lincoln and Obama).
 </p><p>
-The program takes a number of Lincoln's works and forms nth-order <a href="http://mathworld.wolfram.com/MarkovChain.html">Markov chains</a> (specified before runtime) and then uses these to produce a number of sentences.  Higher values of n will give more direct quotes from the source material.  I'd recommend one of about 3.  <a href="{{ url_for("run_lincoln") }}">Check it out for yourself!</a>
+The program takes a number of Lincoln's works and forms nth-order <a href="http://mathworld.wolfram.com/MarkovChain.html">Markov chains</a> (specified before runtime) and then uses these to produce a number of sentences.  Higher values of n will give more direct quotes from the source material.  I'd recommend one of about 3.  <a href="{{ url_for("projects.run_lincoln") }}">Check it out for yourself!</a>
 </p>
 {% endblock %}

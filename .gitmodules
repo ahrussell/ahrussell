@@ -1,0 +1,6 @@
+[submodule "src/fifthseason"]
+	path = src/fifthseason
+	url = git://github.com/zrathustra/fifthseason.git
+[submodule "src/lincolnbot"]
+	path = src/lincolnbot
+	url = git://github.com/zrathustra/lincolnbot.git

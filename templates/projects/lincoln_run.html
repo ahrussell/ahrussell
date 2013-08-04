@@ -29,7 +29,7 @@
     </div>
 
     <div id="back" style="text-align: right; margin-right: 10px;">
-        <a href="{{ url_for("projects",page_name="lincoln") }}">&larr; Back</a>
+        <a href="{{ url_for("projects.index",page_name="lincoln") }}">&larr; Back</a>
     </div>
 </div>
 
@@ -102,7 +102,7 @@
 
         $.ajax({
           type: "POST",
-          url: "{{ url_for("run_lincoln") }}",
+          url: "{{ url_for("projects.run_lincoln") }}",
           data: files
         }).done(function( msg ) {
             $("div#sub_title").html("Speech");
