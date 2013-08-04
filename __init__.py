@@ -34,6 +34,9 @@ def resume():
 def downloads(filepath):
     return send_file("downloads/"+filepath, as_attachment=True)
 
+@app.errorhandler(404)
+def error_page(e):
+    return e
 
 if __name__ == '__main__':
     # app.debug = True

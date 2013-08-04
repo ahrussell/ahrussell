@@ -1,0 +1,12 @@
+{% extends "main_layout.html" %}
+
+{% block title %}
+Andrew Russell
+{% endblock %}
+
+{% block main %}
+<div class="title page-header"><h3>First Post</h3> <span class="post_time_stamp">03 August 2013</span></div>
+        <div class="body">
+            Welcome to my blog!  There will be some updates in the near future, but here it is for now.  Be sure to check out the <a href="{{ url_for("projects.index") }}">projects</a> page.  I'll hopefully be able to get a few more projects up there by the end of the summer.
+        </div>
+{% endblock %}
