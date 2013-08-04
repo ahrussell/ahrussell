@@ -35,10 +35,13 @@ def downloads(filepath):
     return send_file("downloads/"+filepath, as_attachment=True)
 
 @app.errorhandler(404)
+@app.errorhandler(403)
+@app.errorhandler(410)
+@app.errorhandler(500)
 def error_page(e):
     error = str(e)[:3]
 
-    return render_template("error/"+str(error)+".html", page_name="error", error_message=e, error=error), int(error)
+    return render_template("error/"+str(error)+".html", page_name="error", error_message=str(e), error=error), int(error)
 
 if __name__ == '__main__':
     # app.debug = True
