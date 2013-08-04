@@ -36,8 +36,8 @@ def downloads(filepath):
 
 @app.errorhandler(404)
 def error_page(e):
-    error = int(e[:3])
-    print error
+    error = 404
+    print e
     print 
     print "!!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
