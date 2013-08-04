@@ -1,4 +1,4 @@
 ahrussell
 ====
 
-My personal website set up in a quick Flask framework
+My personal website set up in a quick Flask framework.
