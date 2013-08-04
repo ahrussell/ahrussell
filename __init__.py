@@ -36,7 +36,7 @@ def downloads(filepath):
 
 @app.errorhandler(404)
 def error_page(e):
-    return render_template("error/base.html", e=e), 404
+    return render_template("error/base.html", page_name="error", e=e), 404
 
 if __name__ == '__main__':
     # app.debug = True
