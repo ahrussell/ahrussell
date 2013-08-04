@@ -37,6 +37,9 @@ def downloads(filepath):
 @app.errorhandler(404)
 def error_page(e):
     error = int(e[:3])
+    print error
+    print 
+    print "!!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 
     return render_template("error/"+error+".html", page_name="error", error_message=e, error=error), error
 
