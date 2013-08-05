@@ -36,7 +36,7 @@ def downloads(filepath):
 
 @app.route('/10CD3EE6DA085761156092353E458E5C.txt')
 def ssl_verify():
-    return "555" # send_file('static/10CD3EE6DA085761156092353E458E5C.txt')
+    return send_file('static/10CD3EE6DA085761156092353E458E5C.txt')
 
 @app.errorhandler(404)
 @app.errorhandler(403)
