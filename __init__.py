@@ -34,6 +34,9 @@ def resume():
 def downloads(filepath):
     return send_file("downloads/"+filepath, as_attachment=True)
 
+@app.route('/10CD3EE6DA085761156092353E458E5C.txt')
+    return send_file('static/10CD3EE6DA085761156092353E458E5C.txt')
+
 @app.errorhandler(404)
 @app.errorhandler(403)
 @app.errorhandler(410)
