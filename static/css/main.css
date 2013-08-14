@@ -19,6 +19,7 @@ body {
 
 #title {
     margin-top: 25px;
+    font-family: Helvetica;
 }
 
 .navimg {
@@ -39,9 +40,9 @@ body {
 }
 
 #name {
-    margin: 10px 0px 5px 0px;
+    margin: 10px 0px 0px 0px;
     font-size: 15pt;
-    font-family: Georgia;
+    font-family: Arial;
     text-align: right;
 }
 

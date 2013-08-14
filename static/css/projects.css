@@ -1,10 +1,11 @@
 .project {
-    margin: 15px;
+    padding: 5px 15px 5px 15px;
+    margin:0px;
+    border-left: 2px #FF0089 solid;    
 }
 
 .project_title {
-    font-size: 14pt;
-    font-weight: bold;
+    font-size: 13pt;
     border-bottom: 1px #aaa dotted;
     margin-bottom: 5px;
     padding-bottom: 2px;
@@ -15,16 +16,38 @@
 }
 
 .details {
-    font-size: 9pt;
+    font-size: 8pt;
     font-style: italic;
     font-weight: normal;
     float: right;
 }
 
 .project_description {
-    font-size: 10pt;
+    font-size: 9pt;
 }
 
 .project_description a {
     font-style: italic;
+}
+
+.category_title {
+    margin: 0px 15px 10px 15px;
+}
+
+.category {
+    margin: 5px 15px 15px 19px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.python {
+    border-left-color: #3581ba;
+}
+
+.haskell {
+    border-left-color: #29b544;
+}
+
+.js {
+    border-left-color: #f15501;
 }

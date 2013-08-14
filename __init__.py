@@ -7,7 +7,6 @@ import uuid
 import src
 
 app = Flask(__name__)
-app.debug = True
 
 app.config['HOME'] = "/var/www/ahrussell/ahrussell/"
 
@@ -44,5 +43,5 @@ def error_page(e):
     return render_template("error/"+str(error)+".html", page_name="error", error_message=str(e), error=error), int(error)
 
 if __name__ == '__main__':
-    # app.debug = True
-    app.run()
+    app.debug = True
+    app.run(port=3333)
