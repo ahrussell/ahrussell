@@ -13,6 +13,7 @@
 
 .project_title a:hover {
     text-decoration: none;
+    opacity: .8;
 }
 
 .details {
@@ -44,10 +45,22 @@
     border-left-color: #3581ba;
 }
 
+.python a {
+    color: #3581ba;
+}
+
 .haskell {
     border-left-color: #29b544;
 }
 
+.haskell a {
+    color: #29b544;
+}
+
 .js {
     border-left-color: #f15501;
+}
+
+.js a {
+   color: #f15501;
 }
