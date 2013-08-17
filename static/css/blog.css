@@ -1,8 +1,11 @@
+h3
+{
+    margin: 15px;
+}
 .title {
     font-size: 15pt;
     font-weight: bold;
     padding-bottom: 5px;
-    border-bottom: #aaa 1px dotted; 
     margin: 15px 15px 15px 15px;
 }
 
@@ -34,4 +37,18 @@ h3
 .body 
 {
     margin: 10px 20px 10px 20px;
+}
+
+.formatted_date
+{
+    font-size: 9pt;
+    font-style: italic;
+}
+
+hr
+{
+    border: none;
+    border-bottom: #aaa 1px dotted; 
+    height: 0px;    
+    margin: 5px 5px 10px 5px;
 }

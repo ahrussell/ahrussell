@@ -6,14 +6,6 @@ Blog
 
 {% block main %}
 
-    {% for post in posts %}
-        <div class="title"><a href="{{ post['id'] }}">{{ post['title'] }}</a> <span class="time_stamp">{{ post["date"] }}</span></div>
-        <div class="description">
-            {% if post["body"]|count > 300 %}
-                {{ post["body"][:300] + "..." }}
-            {% else %}
-                {{ post["body"] }}
-            {% endif %}
-            </div>    
-    {% endfor %}
+<h3>August 2014</h3>
+        <div class="title"><a href="/blog/2014/08/15/functional-programming">Thinking like a computer, or why imperative programming is dysfunctional</a> </div>
 {% endblock %}

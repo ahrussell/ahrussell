@@ -5,8 +5,10 @@ Blog
 {% endblock %}
 
 {% block main %}
-        <div class="title page-header"><h3>{{ post['title'] }}</h3> <span class="post_time_stamp">{{ post["date"] }}</span></div>
         <div class="body">
-                {{ post["body"] }}
+            {{ post|safe }}
+            <div class="formatted_date">
+                Posted {{ formatted_date }}
+            </div>
         </div>    
 {% endblock %}
