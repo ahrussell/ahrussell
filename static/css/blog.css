@@ -1,12 +1,10 @@
-h3
-{
+.date_title {
     margin: 15px;
 }
 .title {
-    font-size: 15pt;
-    font-weight: bold;
+    font-size: 13pt;
     padding-bottom: 5px;
-    margin: 15px 15px 15px 15px;
+    margin: 10px 15px 15px 15px;
 }
 
 .description {
@@ -50,5 +48,5 @@ hr
     border: none;
     border-bottom: #aaa 1px dotted; 
     height: 0px;    
-    margin: 5px 5px 10px 5px;
+    margin: 5px 0px 10px 0px;
 }
