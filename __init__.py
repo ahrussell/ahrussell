@@ -24,7 +24,7 @@ def index():
     with open(home_dir+"_blog/2014-08-30-fp.md") as f:
         d = datetime.date(2014, 8, 30).strftime("%a %B %Y")
 
-        return render_template("index.html", post=markdown.markdown(f.read()), page_name="blog", formatted_date=d)
+        return render_template("index.html", post=markdown.markdown(f.read()), page_name="home", formatted_date=d)
 
     
 @app.route('/about')
