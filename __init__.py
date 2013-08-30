@@ -9,8 +9,8 @@ import src
 
 app = Flask(__name__)
 
-# app.config['HOME'] = "/var/www/ahrussell/ahrussell/"
-app.config['HOME'] = "/Users/Andrew/Projects/ahrussell/"
+app.config['HOME'] = "/var/www/ahrussell/ahrussell/"
+# app.config['HOME'] = "/Users/Andrew/Projects/ahrussell/"
 
 from views.projects import projects
 app.register_blueprint(projects)
@@ -21,8 +21,8 @@ app.register_blueprint(blog)
 def index():
     home_dir = app.config["HOME"]
 
-    with open(home_dir+"_blog/2014-08-15-summer.md") as f:
-        d = date(2014, 8, 18).strftime("%a %B %Y")
+    with open(home_dir+"_blog/2014-08-30-fp.md") as f:
+        d = date(2014, 8, 30).strftime("%a %B %Y")
 
         return render_template("index.html", post=markdown.markdown(f.read()), page_name="blog", formatted_date=d)
 
