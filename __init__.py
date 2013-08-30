@@ -21,8 +21,8 @@ app.register_blueprint(blog)
 def index():
     home_dir = app.config["HOME"]
 
-    with open(home_dir+"_blog/2014-08-30-fp.md") as f:
-        d = datetime.date(2014, 8, 30).strftime("%a %B %Y")
+    with open(home_dir+"_blog/2013-08-30-fp.md") as f:
+        d = datetime.date(2013, 8, 30).strftime("%a %B %d, %Y")
 
         return render_template("index.html", post=markdown.markdown(f.read()), page_name="home", formatted_date=d)
 
