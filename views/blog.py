@@ -19,7 +19,7 @@ def index():
 def post(yyyy, mm, dd, title):
 
     with open(home_dir+"_blog/"+yyyy+"-"+mm+"-"+dd+"-"+title+".md") as f:
-        d = date(int(yyyy), int(mm), int(dd)).strftime("%a %B %Y")
+        d = date(int(yyyy), int(mm), int(dd)).strftime("%a %B %d, %Y")
 
         return render_template("post.html", post=markdown.markdown(f.read()), page_name="blog", formatted_date=d)
 
